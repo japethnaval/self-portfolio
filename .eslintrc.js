@@ -13,7 +13,8 @@ module.exports = {
     },
     "rules": {
      // This is covered by TS interfaces instead
-      "react/prop-types": 'off'
+      "react/prop-types": 'off',
+      "import/prefer-default-export": 'off'
     },
     "settings": {
       "react": {

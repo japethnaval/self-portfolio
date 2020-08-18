@@ -1,32 +1,28 @@
-import { IPostState } from "./state";
-import { useReducer } from "react";
-import { reducer } from "./reducer";
-
+import { useReducer } from 'react'
 import axios from 'axios'
-import { SET_POST, GET_POST } from "./constants";
+import { IPostState } from './state'
+import { reducer } from './reducer'
 
-export const usePostsActions = (
-    initialState: IPostState
-  ) => { 
-    const [
-        { posts, pending },
-        dispatch,
-      ] = useReducer(reducer, initialState)
+import { SET_POST, GET_POST } from './constants'
 
-      const fetchPosts = async () => {
-          try {
-            dispatch({ type: GET_POST, payload: null })
-            const posts = await axios.get('https://jsonplaceholder.typicode.com/posts')
-            dispatch({ type: SET_POST, payload: posts })
-          } catch (error) {
-            console.error(error)
-          }
-      }
+export const usePostsActions = (initialState: IPostState) => {
+  const [{ posts, pending }, dispatch] = useReducer(reducer, initialState)
 
-
-    return {
-        pending,
-        posts,
-        fetchPosts
+  const fetchPosts = async () => {
+    try {
+      dispatch({ type: GET_POST, payload: null })
+      const postsData = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts',
+      )
+      dispatch({ type: SET_POST, payload: postsData })
+    } catch (error) {
+      console.error(error)
     }
+  }
+
+  return {
+    pending,
+    posts,
+    fetchPosts,
+  }
 }
