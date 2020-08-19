@@ -1,0 +1,9 @@
+@import '../scss/variable';
+
+body, html {
+  background-color: $white;
+  overflow: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto Mono', monospace;
+}
