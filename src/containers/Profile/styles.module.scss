@@ -67,15 +67,16 @@
 .avatarContainer {
     display: flex;
     justify-content: center;
-    margin: 24px;
+    align-items: center;
+    height: 100%;
 }
-.aboutMe {
-    height: 55em!important;
+.about {
+    width: 100%;
 }
 
 .avatarRoot {
-    width: 150px!important;
-    height: 150px!important;
+    width: 250px!important;
+    height: 300px!important;
 }
 
 .section {
@@ -85,11 +86,12 @@
 }
 
 .aboutContent {
-    display: flex;
     justify-content: center;
     background: rgba(0,0,0,0.7);
     padding: 32px;
     border-radius: 8px;
+    line-height: 2;
+    font-family: 'Raleway', sans-serif!important;
 }
 
 .cards {
@@ -97,5 +99,20 @@
 }
 
 .item {
-    padding: 24px
+    padding: 12px;
+}
+
+.flexEnd {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonRoot {
+    color: white!important;
+    border: 1px solid white!important;
+    &:hover {
+        border: 1px solid white!important;
+        background-color: black!important;
+      }
 }

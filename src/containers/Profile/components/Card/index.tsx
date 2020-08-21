@@ -24,14 +24,21 @@ export const SkillCard: React.FC<IProps> = ({
         }}
         className={styles.media}
         image={require(`../../../../public/images/${image}`)}
-        title="Contemplative Reptile"
+        title="Skill"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h2"
+          classes={{
+            root: styles.title,
+          }}
+        >
           {title}
         </Typography>
         <Typography
-          variant="body2"
+          variant="subtitle2"
           component="p"
           classes={{
             root: styles.typography,

@@ -14,7 +14,15 @@ const Section: React.FC<IProps> = ({
   sectionClassName,
 }: IProps) => {
   return (
-    <div className={clsx(styles.container, className)}>
+    <div
+      data-aos-once="true"
+      data-aos-duration="300"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-anchor-placement="top-center"
+      data-aos="fade-up"
+      className={clsx(styles.container, className)}
+    >
       <div className={clsx(styles.containerSection, sectionClassName)}>
         {children}
       </div>
