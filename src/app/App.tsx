@@ -5,7 +5,7 @@ import './App.scss'
 import {
   Route,
   Switch,
-  BrowserRouter as Router,
+  HashRouter as Router,
   Redirect,
 } from 'react-router-dom'
 import Routes from '../@routes'
