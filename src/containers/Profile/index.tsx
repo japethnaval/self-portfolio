@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
@@ -6,26 +6,38 @@ import {
   faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
-
-import { Button } from '@material-ui/core'
+import { Form, Formik } from 'formik'
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 import AOS from 'aos'
 import Grid from '@material-ui/core/Grid'
 import Avatar from '@material-ui/core/Avatar'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import clsx from 'clsx'
+import EmailJS from 'emailjs-com'
 import { SkillCard } from './components/Card'
+import { validationSchema } from '../../utils/validations/contact'
 import Section from './components/Section'
 import SectionTitle from './components/SectionTitle'
+import Button from '../../components/Button'
 import styles from './styles.module.scss'
 import avatarimg from '../../public/images/jap.jpg'
 import RESUMEJSON from '../../strings/resume.json'
 import SOCIAL from '../../strings/social.json'
 import STRINGS from '../../strings/en.json'
 import SKILLS from '../../strings/skills.json'
-
+import FormikInput from '../../components/Formik/Input'
 import 'aos/dist/aos.css'
 
+interface IFormProps {
+  message: string
+  emailAddress: string
+  webisteName?: string
+}
+
 export const ProfileContainer: React.FC = () => {
+  const [error, setError] = useState<boolean|undefined>(undefined)
+
   const navigateToExternalUrl = (url: string, shouldOpenNewTab = true): any => {
     if (shouldOpenNewTab) {
       window.open(url, '_blank')
@@ -43,6 +55,29 @@ export const ProfileContainer: React.FC = () => {
     downloadLink.href = linkSource
     downloadLink.download = fileName
     downloadLink.click()
+  }
+
+  const onSubmit = async (values: IFormProps, { resetForm }: any) => {
+    const {
+      REACT_APP_SERVICEID,
+      REACT_APP_TEMPLATEID,
+      REACT_APP_USERID,
+    } = process.env as any
+
+    const templateData = { webisteName: "Jap's Personal Portfolio", ...values }
+    
+    try {
+      await EmailJS.send(
+        REACT_APP_SERVICEID,
+        REACT_APP_TEMPLATEID,
+        templateData,
+        REACT_APP_USERID,
+      )
+      setError(false)
+      resetForm()
+    } catch (error) {
+      setError(true)
+    }
   }
 
   useEffect(() => {
@@ -115,9 +150,7 @@ export const ProfileContainer: React.FC = () => {
                   <div className={styles.flexEnd}>
                     <Button
                       onClick={() => downloadPDF(RESUMEJSON.RESUME)}
-                      classes={{
-                        root: styles.buttonRoot,
-                      }}
+                      className={styles.buttonRoot}
                     >
                       {STRINGS.PROFILE.DOWNLOAD}
                     </Button>
@@ -130,7 +163,7 @@ export const ProfileContainer: React.FC = () => {
 
         <Section sectionClassName={styles.section}>
           <SectionTitle title="Skills" />
-          <div className={styles.cards}>
+          <div className={clsx(styles.cards)}>
             {SKILLS.map((row) => (
               <Grid container direction="row">
                 {row.skills.map((column) => (
@@ -153,6 +186,73 @@ export const ProfileContainer: React.FC = () => {
             ))}
           </div>
         </Section>
+
+        <Section sectionClassName={styles.section}>
+          <SectionTitle title="Hit me up!" />
+          <div className={clsx(styles.aboutContent, styles.hitMe)}>
+            <Formik
+              validateOnChange
+              validateOnBlur={false}
+              validateOnMount={false}
+              validationSchema={validationSchema}
+              onSubmit={onSubmit}
+              initialValues={{
+                emailAddress: '',
+                message: '',
+              }}
+            >
+              <Form className={styles.form}>
+                <Grid container direction="row" spacing={2}>
+                  <Grid item xs={12} md={6}>
+                    <h2>{STRINGS.PROFILE.CONTACT_CONSENT}</h2>
+                    <p>{STRINGS.PROFILE.CONTACT_TEXT}</p>
+                  </Grid>
+
+                  <Grid item xs={12} md={6}>
+                    <FormikInput
+                      fullWidth
+                      inputClass={styles.input}
+                      name="emailAddress"
+                      placeholder="Email"
+                    />
+
+                    <FormikInput
+                      fullWidth
+                      className={styles.multiline}
+                      inputClass={styles.input}
+                      multiline
+                      rows={5}
+                      name="message"
+                      placeholder="Message"
+                    />
+                    <div className={styles.submitContainer}>
+                      <Button type="submit" className={clsx(styles.buttonRoot)}>
+                        {STRINGS.PROFILE.SEND_MSG}
+                      </Button>
+                    </div>
+                  </Grid>
+                </Grid>
+              </Form>
+            </Formik>
+            {error !== undefined && 
+            <div className={styles.errMsg}>
+              {error ?
+               <div className={styles.error}>
+                 <FontAwesomeIcon icon={faTimesCircle}/> <p>{STRINGS.PROFILE.FAILED_MSG}</p>
+               </div>
+                :
+              <div className={styles.success}>
+                <FontAwesomeIcon icon={faCheckCircle}/> <p>{STRINGS.PROFILE.SUCCESS_MSG}</p>
+              </div>
+              }
+            </div>
+            }
+          </div>
+        </Section>
+        <div className={clsx(styles.aboutContent, styles.footer)}>
+          <div>{STRINGS.PROFILE.FOOTER_INFO}</div>
+          <div>{STRINGS.PROFILE.FOOTER_TEXT}</div>
+        </div>
       </PerfectScrollbar>
     </div>
   )

@@ -1,0 +1,37 @@
+@import '../../../scss/variable';
+
+.inputRoot {
+    padding: 6px;
+    border: 1px solid #edf0f1;
+    font-family: 'ClanPro-WideNews';
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    outline: none;
+}
+
+.focused {
+  border: 1px solid $blue !important;
+}
+
+.danger {
+  border: 1px solid $danger !important;
+}
+
+.label {
+    display: block;
+    font-family: 'ClanPro-WideBold'!important;
+    font-size: 12px!important;
+    color: white!important;
+    margin-bottom: 6px;
+    flex: 1 auto;
+    text-align: left;
+}
+
+.iconErr {
+    color: $danger;
+}
+
+.iconValid {
+    color: $white
+}

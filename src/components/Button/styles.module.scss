@@ -1,0 +1,36 @@
+@import '../../scss/variable';
+
+.rounded {
+  border-radius: 56px!important;
+}
+
+.green {
+    background-color: $green!important;
+    &:hover, &:active {
+        &:not([disabled]) { 
+            background-color: darken($danger, 0.12);
+        }
+    }
+}
+
+.danger {
+    background-color: $danger!important;
+    &:hover, &:active {
+        &:not([disabled]) { 
+            background-color: darken($danger, 0.12);
+        }
+    }
+}
+
+.darkBlue {
+    background-color: $dark_blue!important;
+    &:hover, &:active {
+        &:not([disabled]) { 
+            background-color: darken($dark_blue, 15%)!important;
+        }
+    }
+}
+
+.disabled {
+    opacity: 0.5!important;
+}

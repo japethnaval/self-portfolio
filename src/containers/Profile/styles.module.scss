@@ -1,3 +1,5 @@
+@import '../../scss/variable';
+
 .image {
     background-image: url('../../public/images/background_2.jpg');
     height: 100%;
@@ -108,11 +110,75 @@
     justify-content: flex-end;
 }
 
+.flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
 .buttonRoot {
     color: white!important;
     border: 1px solid white!important;
-    &:hover {
-        border: 1px solid white!important;
-        background-color: black!important;
-      }
+
 }
+
+.form {
+    color: $white;
+    .multiline{
+        padding: 6px!important
+    }
+    .input {
+        color: white;
+    }
+}
+
+.fullWidth {
+    width: 100%!important;
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    border-radius: 0;
+    padding: 8px;
+    color: white;
+    text-align: center;
+}
+
+.hitMe {
+    margin: 32px 12px 0 12px;
+}
+
+.errMsg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .error {
+        color: lighten($danger, 20%);
+        text-align: center;
+        margin: 0;
+        padding: 0 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > p {
+            padding: 0 12px;
+        }
+    }
+    .success {
+        color: lighten($green, 20%);
+        text-align: center;
+        margin: 0;
+        padding: 0 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > p {
+            padding: 0 12px;
+        }
+
+    }
+}
+

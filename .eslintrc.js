@@ -16,7 +16,8 @@ module.exports = {
       "react/prop-types": 'off',
       "import/prefer-default-export": 'off',
       "global-require": 'off',
-      "import/no-dynamic-require": 'off'
+      "import/no-dynamic-require": 'off',
+      "react/jsx-props-no-spreading": 'off'
     },
     "settings": {
       "react": {
