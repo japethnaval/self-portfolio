@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/self-portfolio/static/css/main.7f8ad791.chunk.css",
-    "main.js": "/self-portfolio/static/js/main.51c8ef79.chunk.js",
-    "main.js.map": "/self-portfolio/static/js/main.51c8ef79.chunk.js.map",
+    "main.css": "/self-portfolio/static/css/main.0e0a3cde.chunk.css",
+    "main.js": "/self-portfolio/static/js/main.c410bbc0.chunk.js",
+    "main.js.map": "/self-portfolio/static/js/main.c410bbc0.chunk.js.map",
     "runtime-main.js": "/self-portfolio/static/js/runtime-main.a0052aee.js",
     "runtime-main.js.map": "/self-portfolio/static/js/runtime-main.a0052aee.js.map",
     "static/css/2.5568c9f7.chunk.css": "/self-portfolio/static/css/2.5568c9f7.chunk.css",
-    "static/js/2.02a3a881.chunk.js": "/self-portfolio/static/js/2.02a3a881.chunk.js",
-    "static/js/2.02a3a881.chunk.js.map": "/self-portfolio/static/js/2.02a3a881.chunk.js.map",
+    "static/js/2.6828e080.chunk.js": "/self-portfolio/static/js/2.6828e080.chunk.js",
+    "static/js/2.6828e080.chunk.js.map": "/self-portfolio/static/js/2.6828e080.chunk.js.map",
     "index.html": "/self-portfolio/index.html",
-    "precache-manifest.b3dabb53e32073f2f5ffa27bea7f8bdc.js": "/self-portfolio/precache-manifest.b3dabb53e32073f2f5ffa27bea7f8bdc.js",
+    "precache-manifest.110cc0d8348743873b4e6f3c3e05adef.js": "/self-portfolio/precache-manifest.110cc0d8348743873b4e6f3c3e05adef.js",
     "service-worker.js": "/self-portfolio/service-worker.js",
     "static/css/2.5568c9f7.chunk.css.map": "/self-portfolio/static/css/2.5568c9f7.chunk.css.map",
-    "static/css/main.7f8ad791.chunk.css.map": "/self-portfolio/static/css/main.7f8ad791.chunk.css.map",
-    "static/js/2.02a3a881.chunk.js.LICENSE.txt": "/self-portfolio/static/js/2.02a3a881.chunk.js.LICENSE.txt",
+    "static/css/main.0e0a3cde.chunk.css.map": "/self-portfolio/static/css/main.0e0a3cde.chunk.css.map",
+    "static/js/2.6828e080.chunk.js.LICENSE.txt": "/self-portfolio/static/js/2.6828e080.chunk.js.LICENSE.txt",
     "static/media/aws_logo.png": "/self-portfolio/static/media/aws_logo.47004c68.png",
     "static/media/background.jpg": "/self-portfolio/static/media/background.ce280c02.jpg",
     "static/media/background_2.jpg": "/self-portfolio/static/media/background_2.cd0c43b1.jpg",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.a0052aee.js",
     "static/css/2.5568c9f7.chunk.css",
-    "static/js/2.02a3a881.chunk.js",
-    "static/css/main.7f8ad791.chunk.css",
-    "static/js/main.51c8ef79.chunk.js"
+    "static/js/2.6828e080.chunk.js",
+    "static/css/main.0e0a3cde.chunk.css",
+    "static/js/main.c410bbc0.chunk.js"
   ]
 }
